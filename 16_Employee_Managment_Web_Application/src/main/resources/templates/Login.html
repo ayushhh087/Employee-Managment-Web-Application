@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Login</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+	rel="stylesheet" />
+<style>
+body {
+	background: url('/6771218.jpg') no-repeat center center fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	font-family: 'Segoe UI', sans-serif;
+}
+
+.login-container {
+	background: rgba(0, 0, 0, 0.85); /* black translucent */
+	padding: 40px;
+	border-radius: 12px;
+	box-shadow: 0 0 15px rgba(255, 153, 0, 0.3); /* orange glow */
+	color: #ff9900; /* bright orange text */
+	width: 100%;
+	max-width: 400px;
+}
+
+.form-label {
+	color: #ffcc80; /* light orange labels */
+}
+
+.form-control {
+	background: #1e1e1e; /* dark grey input */
+	color: #fff;
+	border: 1px solid #444;
+}
+
+.form-control:focus {
+	border-color: #ff9900;
+	box-shadow: 0 0 0 0.2rem rgba(255, 153, 0, 0.25);
+}
+
+.btn-primary {
+	background-color: #ff6f00;
+	border: none;
+	color: #fff;
+}
+
+.btn-primary:hover {
+	background-color: #ff8f1f;
+}
+</style>
+</head>
+<body>
+	<div class="login-container">
+		<h3 class="mb-4 text-center">Login</h3>
+		<form th:action="@{/loginPage}" method="post">
+			<div th:if="${error}">
+				<p th:text="${error}" class="alert alert-danger"></p>
+			</div>
+			<div class="mb-3">
+				<label for="username" class="form-label">Username</label> <input
+					type="text" name="username" id="username" class="form-control"/>
+			</div>
+
+			<div class="mb-3">
+				<label for="password" class="form-label">Password</label> <input
+					type="password" name="password" id="password" class="form-control"/>
+			</div>
+
+			<div class="d-grid">
+				<button type="submit" class="btn btn-primary">Login</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
